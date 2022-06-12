@@ -27,6 +27,9 @@ module.exports = {
         "whiteAlpha-700": "rgba(255, 255, 255, 0.64)",
         "whiteAlpha-800": "rgba(255, 255, 255, 0.80)",
         "whiteAlpha-900": "rgba(255, 255, 255, 0.92)",
+      },
+      fontFamily: {
+        "poppins": ["Poppins", "sans-serif"],
       }
     },
   },

@@ -24,8 +24,14 @@
       "@components/*": [
         "src/common/components/*"
       ],
+      "@common/*": [
+        "src/common/*"
+      ],
       "@lib/*": [
         "src/common/lib/*"
+      ],
+      "@utils/*": [
+        "src/common/utils/*"
       ],
     }
   },

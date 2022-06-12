@@ -4,4 +4,5 @@
 
 body {
   @apply bg-neutral-900 text-gray-200;
+  @apply font-poppins
 }

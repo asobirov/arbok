@@ -1,26 +1,31 @@
-import type { NextPage } from 'next'
+import type { NextPageWithLayout } from '@common/types';
 
 import { useRouter } from 'next/router';
 
-import PageLayout from '@components/Layout/PageLayout'
 import { signOut, useSession } from 'next-auth/react'
 import Button from '@components/Buttons/Button';
+import { ChatSidebar } from '@components/Chat/ChatSidebar';
 
-const Home: NextPage = () => {
+const Home: NextPageWithLayout = () => {
   const router = useRouter();
 
-  const { data } = useSession({
+  const { data, status } = useSession({
     required: true, onUnauthenticated: () => {
       router.push('/auth');
     }
   })
+
+  if (status === 'loading' || data === null) {
+    return <div>Loading...</div>
+  }
+
   return (
-    <Button
-      onClick={() => signOut()}
-    >
-      Sign out
-    </Button>
+    <div className='min-h-screen'>
+      <ChatSidebar />
+    </div>
   )
 }
+
+Home.getLayout = (page) => page;
 
 export default Home
