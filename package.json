@@ -6,7 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "db:gen": "prisma generate",
+    "db:migrate": "prisma migrate",
+    "db:push": "prisma db push",
+    "db:dev:migrate": "prisma migrate dev"
   },
   "dependencies": {
     "@next-auth/prisma-adapter": "^1.0.3",
