@@ -2,8 +2,7 @@ import type { NextPageWithLayout } from '@common/types';
 
 import { useRouter } from 'next/router';
 
-import { signOut, useSession } from 'next-auth/react'
-import Button from '@components/Buttons/Button';
+import { useSession } from 'next-auth/react'
 import { ChatSidebar } from '@components/Chat/ChatSidebar';
 
 const Home: NextPageWithLayout = () => {
@@ -20,7 +19,7 @@ const Home: NextPageWithLayout = () => {
   }
 
   return (
-    <div className='min-h-screen'>
+    <div className='flex flex-row min-h-screen'>
       <ChatSidebar />
     </div>
   )
