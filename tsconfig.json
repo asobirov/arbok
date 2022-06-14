@@ -21,6 +21,15 @@
     "noUncheckedIndexedAccess": true,
     "baseUrl": ".",
     "paths": {
+      "@api/*": [
+        "src/pages/api/*"
+      ],
+      "@server": [
+        "src/server"
+      ],
+      "@server/*": [
+        "src/server/*"
+      ],
       "@components/*": [
         "src/common/components/*"
       ],

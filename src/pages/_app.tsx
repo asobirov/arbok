@@ -1,23 +1,29 @@
-import '../styles/globals.css'
-import type { ReactElement } from 'react';
-import type { AppPropsWithLayout, GetLayout } from '@common/types';
+import superjson from "superjson";
 
 import { SessionProvider } from "next-auth/react";
-import PageLayout from '@components/Layout/PageLayout';
+import { withTRPC } from '@trpc/next';
 
-function MyApp({ Component, pageProps }: AppPropsWithLayout) {
-  const getLayout: GetLayout = (
-    Component.getLayout === null
-      ? (page) => page
-      : Component.getLayout
-  ) || ((page) => (<PageLayout>{page}</PageLayout>));
+import type { AppRouter } from '@server';
+import type { AppType } from 'next/dist/shared/lib/utils';
 
+import '../styles/globals.css'
+
+const MyApp: AppType = ({ Component, pageProps }) => {
   return (
     <SessionProvider session={pageProps.session}>
-      {getLayout(<Component {...pageProps} />)}
+      <Component {...pageProps} />
     </SessionProvider>
-
   )
 }
 
-export default MyApp
+export default withTRPC<AppRouter>({
+  config({ ctx }) {
+    const url = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}/api/trpc` : `http://localhost:${process.env.PORT ?? 3000}/api/trpc`;
+
+    return {
+      url,
+      transformer: superjson
+    }
+  },
+  ssr: false,
+})(MyApp);
