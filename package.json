@@ -19,13 +19,15 @@
     "@trpc/next": "^9.25.1",
     "@trpc/react": "^9.25.1",
     "@trpc/server": "^9.25.1",
+    "clsx": "^1.1.1",
     "next": "12.1.6",
     "next-auth": "^4.4.0",
     "react": "18.1.0",
     "react-dom": "18.1.0",
     "react-query": "^3.39.1",
     "superjson": "^1.9.1",
-    "zod": "^3.17.3"
+    "zod": "^3.17.3",
+    "zustand": "^4.0.0-rc.1"
   },
   "devDependencies": {
     "@types/node": "17.0.42",
@@ -34,6 +36,7 @@
     "autoprefixer": "^10.4.7",
     "eslint": "8.17.0",
     "eslint-config-next": "12.1.6",
+    "eslint-plugin-tailwindcss": "^3.5.2",
     "postcss": "^8.4.14",
     "prisma": "^3.15.1",
     "tailwindcss": "^3.1.2",
